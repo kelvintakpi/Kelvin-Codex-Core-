@@ -1,0 +1,88 @@
+import shutil
+from pathlib import Path
+
+# Re-define the root folder after code execution state reset
+root = Path("/mnt/data/kelvin_codex_replit_deploy_github")
+root.mkdir(parents=True, exist_ok=True)
+
+# Create necessary folders
+(root / "app").mkdir(exist_ok=True)
+
+# Core files for Replit & GitHub
+files = {
+    "main.py": '''from fastapi import FastAPI, WebSocket
+from app.quantum_engine import QuantumEngine
+from app.memory_core import MemoryCore
+from app.voice_interface import VoiceModule
+
+app = FastAPI()
+quantum = QuantumEngine()
+memory = MemoryCore()
+voice = VoiceModule()
+
+@app.get("/")
+def read_root():
+    return {"message": "Kelvin Codex Quantum Core is running"}
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        response = quantum.process(data)
+        await websocket.send_text(f"Response: {response}")
+''',
+
+    "requirements.txt": '''fastapi
+uvicorn
+websockets
+pyttsx3
+requests
+''',
+
+    "start.sh": '''#!/bin/bash
+uvicorn main:app --host 0.0.0.0 --port 8000
+''',
+
+    ".replit": '''run = "bash start.sh"
+'''
+}
+
+# Module files inside app/
+modules = {
+    "quantum_engine.py": '''class QuantumEngine:
+    def process(self, input_data):
+        return f"QuantumEngine processed: {input_data}"
+''',
+
+    "memory_core.py": '''class MemoryCore:
+    def recall(self):
+        return "Memory recalled"
+    def store(self, data):
+        pass
+''',
+
+    "voice_interface.py": '''import pyttsx3
+
+class VoiceModule:
+    def speak(self, text):
+        engine = pyttsx3.init()
+        engine.say(text)
+        engine.runAndWait()
+'''
+}
+
+# Write the files
+for name, content in files.items():
+    with open(root / name, "w") as f:
+        f.write(content)
+
+for name, content in modules.items():
+    with open(root / "app" / name, "w") as f:
+        f.write(content)
+
+# Create the ZIP archive
+zip_path = "/mnt/data/kelvin_codex_github_ready.zip"
+shutil.make_archive(zip_path.replace(".zip", ""), 'zip', root)
+
+zip_path
