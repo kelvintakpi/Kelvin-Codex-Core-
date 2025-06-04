@@ -1,0 +1,131 @@
+
+````markdown
+# ⚛️ Kelvin Codex Quantum Core
+
+A full-stack quantum-enhanced AI engine for real-time football predictions and auto-betting automation powered by FastAPI, Cirq, and Next.js.
+
+---
+
+![Dashboard Screenshot](https://raw.githubusercontent.com/kelvintakpi/Kelvin-Codex-Core/main/screenshots/preview.png)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)  
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import)
+
+---
+
+## ✨ Features
+
+- 🔮 Quantum Prediction Engine (Cirq-powered)  
+- 🧠 Multi-AI Fusion (DeepSeek, LLaMA integration)  
+- 🤖 Auto-Bet with real-time SportyBet API  
+- 📊 Realtime Tailwind Dashboard (Next.js + React)  
+- ☁️ Deploy-ready for Render & Vercel  
+
+---
+
+## 📁 Project Structure
+
+```bash
+kelvin-codex-quantum-core/
+├── backend/         # FastAPI server + Quantum logic
+├── frontend/        # Next.js Dashboard + Tailwind UI
+├── .env.example     # Environment variables template
+├── render.yaml      # Render deploy setup config
+├── README.md        # This file
+````
+
+---
+
+## 🔐 Environment Variables (`.env.example`)
+
+```env
+SPORTYBET_API_KEY=your_key_here
+QUANTUM_MODE=1
+CIRQ_API_ENABLED=true
+AUTO_BET=1
+NEXT_PUBLIC_API_BASE=https://kelvin-codex-backend.onrender.com
+```
+
+---
+
+## 🔧 Backend Setup (FastAPI + Cirq)
+
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+➡️ Open [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API docs.
+
+---
+
+## 💻 Frontend Setup (Next.js + TailwindCSS)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+➡️ View frontend at [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🚀 Deployment
+
+### Backend (Render)
+
+* Connect your GitHub repo to Render.
+* Use the `render.yaml` file for automatic deployment.
+* Add environment variables in Render dashboard under the Environment tab.
+
+### Frontend (Vercel)
+
+* Import the `frontend/` folder on Vercel.
+* Set `NEXT_PUBLIC_API_BASE` to your Render backend URL.
+
+---
+
+## 🧠 Contributing
+
+```bash
+git clone https://github.com/kelvintakpi/Kelvin-Codex-Core.git
+cd Kelvin-Codex-Core
+git checkout -b feature/your-feature
+```
+
+Push your changes and open a pull request 🙌
+
+---
+
+## 📦 Tech Stack
+
+* **Backend:** Python, FastAPI, Cirq, HTTPX
+* **Frontend:** React, Next.js, Tailwind CSS
+* **APIs:** SportyBet API, LLaMA, DeepSeek
+
+---
+
+## 📅 Roadmap
+
+* [x] Quantum logic core (Cirq)
+* [x] LLaMA + DeepSeek plugins
+* [ ] Add email alerts
+* [ ] Add staking controls
+* [ ] Deploy Telegram bot interface
+
+---
+
+## 📄 License
+
+MIT License © 2025 Kelvin Codex
+
+```
+
+---
+
+If you want, I can also help you prepare the `requirements.txt`, `render.yaml`, or the backend `main.py` FastAPI starter, or even the frontend `package.json` and config files for your repo. Just say the word!
+```
