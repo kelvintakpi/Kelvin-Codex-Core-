@@ -1,3 +1,94 @@
+📁 kelvin-codex-quantum-core/
+├── README.md
+├── render.yaml
+├── .gitignore
+├── .env.example
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── api/
+│       ├── __init__.py
+│       ├── routes.py
+│       ├── logic.py
+│       ├── quantum_model.py
+│       ├── sportybet.py
+│       └── plugins/
+│           ├── deepseek_plugin.py
+│           └── llama_plugin.py
+├── frontend/
+│   ├── README.md
+│   ├── package.json
+│   ├── next.config.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   ├── public/
+│   ├── pages/
+│   │   ├── index.tsx
+│   │   ├── _app.tsx
+│   │   └── dashboard.tsx
+│   └── components/
+│       ├── Layout.tsx
+│       └── PredictionCard.tsx
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+
+# LICENSE
+MIT License
+
+Copyright (c) 2025 Kelvin Codex
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software...
+
+---
+
+# render.yaml
+services:
+  - type: web
+    name: kelvin-codex-backend
+    env: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port 8000"
+    plan: free
+
+---
+
+# .env.example
+SPORTYBET_API_KEY=your_key_here
+QUANTUM_MODE=1
+CIRQ_API_ENABLED=true
+AUTO_BET=1
+NEXT_PUBLIC_API_BASE=https://kelvin-codex-backend.onrender.com
+
+---
+
+# CHANGELOG.md
+## [1.0.0] - Initial Quantum Stack
+- 🎉 Full-stack AI + Quantum betting engine created
+- ✅ One-click deploy to Render and Vercel
+- 🔌 Integrated DeepSeek and LLaMA prediction plugins
+- 🤖 Auto-bet with real-time prediction on SportyBet
+- 📊 Dashboard with Tailwind UI components
+
+---
+
+# CONTRIBUTING.md
+## 🧠 Contributing to Kelvin Codex Quantum Core
+Welcome! Contributions are what make this project powerful.
+
+### 🛠 How to Contribute
+1. Fork the repository
+2. Create your branch: `git checkout -b feature/awesome`
+3. Commit your changes: `git commit -am 'Add awesome feature'`
+4. Push to the branch: `git push origin feature/awesome`
+5. Open a pull request 🙌
+
+### ✨ Code Guidelines
+- Follow the structure and logic styles already used
+- Use clear commit messages
+- Keep performance and quantum optimization in mind
+
+Thank you for making Kelvin Codex better ⚡
 # Kelvin Codex Quantum Core — Complete Code & Setup
 
 ---
